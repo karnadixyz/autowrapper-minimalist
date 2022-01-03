@@ -149,7 +149,7 @@ namespace AutoWrapper.Test
             Convert.ToInt32(rep.StatusCode).ShouldBe(404);
             var ex1 = new ApiException("does not exist.", 404);
             var json = JsonHelper.ToJson(
-                new ApiResponse(0, new ApiError(ex1.Message) { ReferenceErrorCode = ex1.ReferenceErrorCode, ReferenceDocumentLink = ex1.ReferenceDocumentLink })
+                new ApiResponse(0, new ApiError(ex1.Message) { })
                 , null);
             content.ShouldBe(json);
 

@@ -91,7 +91,7 @@ namespace AutoWrapper
                 var ex = exception as ApiException;
                 if (ex.IsModelValidatonError)
                 {
-                    apiError = new ApiError(ResponseMessage.ValidationError, ex.Errors) { ReferenceErrorCode = ex.ReferenceErrorCode, ReferenceDocumentLink = ex.ReferenceDocumentLink };
+                    apiError = new ApiError(ResponseMessage.ValidationError, ex.Errors) { };
                 }
                 else if (ex.IsCustomErrorObject)
                 {
@@ -99,7 +99,7 @@ namespace AutoWrapper
                 }
                 else
                 {
-                    apiError = new ApiError(ex.Message) { ReferenceErrorCode = ex.ReferenceErrorCode, ReferenceDocumentLink = ex.ReferenceDocumentLink };
+                    apiError = new ApiError(ex.Message) { };
                 }
 
                 httpStatusCode = ex.StatusCode;
@@ -123,7 +123,7 @@ namespace AutoWrapper
                     exceptionMessage = ResponseMessage.Unhandled;
                 }
 
-                apiError = new ApiError(exceptionMessage) { Details = stackTrace };
+                apiError = new ApiError(exceptionMessage) { };
                 httpStatusCode = Status500InternalServerError;
             }
 
@@ -320,12 +320,10 @@ namespace AutoWrapper
 
 
         private ApiResponse GetErrorResponse(int httpStatusCode, object apiError)
-            => new ApiResponse(!_options.ShowStatusCode ? 0 : httpStatusCode, apiError) { Version = GetApiVersion() };
+            => new ApiResponse(!_options.ShowStatusCode ? 0 : httpStatusCode, apiError) { };
 
         private ApiResponse GetSucessResponse(ApiResponse apiResponse, string httpMethod)
         {
-            apiResponse.Message ??= $"{httpMethod} {ResponseMessage.Success}";
-            apiResponse.Version = GetApiVersion();
             return apiResponse;
         }
 

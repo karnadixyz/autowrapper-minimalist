@@ -2,7 +2,7 @@
 
  <PropertyGroup>
     <TargetFrameworks>netcoreapp3.0;netcoreapp3.1</TargetFrameworks>
-    <Authors>Vincent Maverick Durano</Authors>
+    <Authors>Vincent Maverick Durano, modified by Karnadi</Authors>
     <Description>A simple yet customizable HTTP response wrapper and exception handler for ASP.NET Core APIs.</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/proudmonkey/AutoWrapper</PackageProjectUrl>
@@ -13,7 +13,7 @@
     <PackageReleaseNotes>See project repo for release notes.</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageId>AutoWrapper.Core</PackageId>
+    <PackageId>AutoWrapper.Minimalist</PackageId>
     <PackageIcon>icon.png</PackageIcon>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
